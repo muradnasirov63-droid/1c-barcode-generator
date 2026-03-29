@@ -16,7 +16,7 @@ add_executable(BarcodeGen
     "Barcode(new).cpp"
     "DataMatrixEncoder.cpp"
     "DataMatrixEncoder.h"
-)
+ "SvgRenderer.h" "SvgRenderer.cpp")
 
 target_link_libraries(BarcodeGen PRIVATE ZXing::ZXing)
 target_include_directories(BarcodeGen PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
