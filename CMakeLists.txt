@@ -4,6 +4,7 @@ project(BarcodeGen)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Подключаем библиотеку ZXing
 include(FetchContent)
 FetchContent_Declare(
   zxing-cpp
@@ -12,11 +13,14 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(zxing-cpp)
 
-add_executable(BarcodeGen
-    "Barcode(new).cpp"
-    "DataMatrixEncoder.cpp"
-    "DataMatrixEncoder.h"
- "SvgRenderer.h" "SvgRenderer.cpp")
+add_executable(test_datamatrix
+    "datamatrix_encoder.cpp"
+    "datamatrix_encoder.h"
+    "test_datamatrix_encoder.cpp"
+    "SvgRenderer.cpp"
+    "SvgRenderer.h"
+)
 
-target_link_libraries(BarcodeGen PRIVATE ZXing::ZXing)
-target_include_directories(BarcodeGen PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(test_datamatrix PRIVATE ZXing::ZXing)
+
+target_include_directories(test_datamatrix PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
